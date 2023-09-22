@@ -1,49 +1,93 @@
 package lessonendproject;
 
-import java.util.Scanner;
+public class Project {
 
-public class Project1 {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stu
 
-	public void area(int l, int w)
-	{
+public class Shape {
 
-		System.out.println("the are of rectanle is: " + l*w);	
+	public void displayArea() {
+        System.out.println("This shape does not have a specific area calculation method.");
+    }
 
-	}
+}
 
-	public void area(int l)
-	{
+package javaproject;
 
-		System.out.println("the are of square is: " + l*l);	
+public class Rectangle extends Shape {
+	
+	  private int length;
+	    private int width;
 
-	}
+	    public Rectangle(int length, int width) {
+	        this.length = length;
+	        this.width = width;
+	    }
+
+	    @Override
+	    public void displayArea() {
+	        System.out.println("Area of the Rectangle: " + calculateArea());
+	    }
+
+	    public double calculateArea() {
+	        return length * width;
+	    }
+
+}
+
+
+package javaproject;
+
+public class Square extends Shape {
+	
+	  private int length;
+	  
+
+	    public Square(int length) {
+	        this.length = length;
+	      
+	    }
+
+	    @Override
+	    public void displayArea() {
+	        System.out.println("Area of the Square: " + calculateArea());
+	    }
+
+	    public double calculateArea() {
+	        return length * length;
+	    }
+
+}
+
+
+package javaproject;
+
+import java.util.ArrayList;
+
+public class ArrayListDemo {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		
+		ArrayList<Shape> shapes = new ArrayList<>();
+		
+		
+		 try {
+	           
+	            shapes.add(new Rectangle(4, 6));
+	           shapes.add(new Square(4));
 
-		Scanner scan = new Scanner(System.in);
-		System.out.println(" Enter the length");
-		int l =scan.nextInt();
-		System.out.println(" Enter the width");
-		int w = scan.nextInt();
+	            for (Shape shape : shapes) {
+	                shape.displayArea();
+	            }
+	        } catch (Exception e) {
+	            System.err.println("An error occurred: " + e.getMessage());
+	        } finally {
+	            System.out.println("Program execution completed.");
+	        }
 
-		Project1 obj = new Project1();
-		try {
-		obj.area(l, w);
-		}
-		catch(Exception e)
-		{
-			e.printStackTrace();
-		}
-
-		try {
-			 obj.area(l);
-		}
-		catch(Exception e)
-		{
-			e.printStackTrace();
-		}
-
+		
 
 	}
 
